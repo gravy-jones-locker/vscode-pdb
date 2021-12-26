@@ -39,8 +39,16 @@ export function activate(context: vscode.ExtensionContext) {
 	context.subscriptions.push(
 		vscode.commands.registerCommand('extension.updatePdbrc',  () => {
 
-		// Create .pdbrc file from breakpoints object
-		var pdbrc = context.asAbsolutePath('').concat('/.pdbrc');
+		// Get the path of the .pdbrc file to edit/create
+		if (vscode.workspace.workspaceFolders) {
+			var pdbrc = vscode.workspace.workspaceFolders[0].uri.path.concat('/.pdbrc');
+		}
+		else {
+			var pdbrc = context.asAbsolutePath('').concat('/.pdbrc');
+		}
+		console.log(pdbrc);
+
+		// Build a combined string and input into the .pdbrc file
 		var pdbrcstr = '';
 		for (let bpid in bps) {
 			pdbrcstr += bps[bpid] + '\n';

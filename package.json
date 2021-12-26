@@ -1,6 +1,7 @@
 {
-  "name": "simple-pdb",
-	"displayName": "simple-pdb",
+	"name": "pdbext",
+	"displayName": "PdbExt",
+	"publisher": "gravyjoneslocker",
 	"description": "",
 	"version": "0.0.1",
 	"engines": {

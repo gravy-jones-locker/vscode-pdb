@@ -1,2 +1,3 @@
 .pdbrc
 node_modules
+*.vsix
